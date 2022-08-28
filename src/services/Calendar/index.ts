@@ -38,8 +38,8 @@ export class CalendarService {
     ].join('\n');
   }
 
-  async createCalendar(req: Request<any>) {
-    const absences = await this.absencesService.findAbsences(req.params);
+  async createCalendar(req: Request) {
+    const absences = await this.absencesService.findAbsences(req.query as any);
 
     const iCal = compose(this.createICal, this.createICalEvents())(absences);
     return iCal;
