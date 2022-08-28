@@ -92,11 +92,14 @@ export class AbsencesService {
     )(absences);
 
     // Return
-    return page
-      ? slice(
-          this.PAGE_LIMIT * (page - 1),
-          this.PAGE_LIMIT * page
-        )(filteredAbsences)
-      : filteredAbsences;
+    return {
+      absences: page
+        ? slice(
+            this.PAGE_LIMIT * (page - 1),
+            this.PAGE_LIMIT * page
+          )(filteredAbsences)
+        : filteredAbsences,
+      totalRecords: filteredAbsences.length
+    };
   }
 }

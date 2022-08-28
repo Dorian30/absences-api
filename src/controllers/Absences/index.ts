@@ -11,12 +11,12 @@ export class GetAbsencesController {
 
   async executeImpl(req: Request, res: Response) {
     const { page, type, period } = req.query as any;
-    const absences = await this.absencesService.findAbsences({
+    const { absences, totalRecords } = await this.absencesService.findAbsences({
       page,
       type,
       period
     });
 
-    return res.setHeader('X-Total-Count', absences.length).json(absences);
+    return res.setHeader('X-Total-Count', totalRecords).json(absences);
   }
 }
