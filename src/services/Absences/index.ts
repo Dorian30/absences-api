@@ -78,8 +78,8 @@ export class AbsencesService {
     type,
     period
   }: {
-    page: number;
-    type: 'sickness' | 'vacation' | null;
+    page?: number;
+    type: 'sickness' | 'vacation';
     period: { from?: string; to?: string } | null;
   }) {
     const absences = (await readJsonFile(ABSENCES_PATH)) as Array<IAbsence>;
@@ -92,9 +92,11 @@ export class AbsencesService {
     )(absences);
 
     // Return
-    return slice(
-      this.PAGE_LIMIT * (page - 1),
-      this.PAGE_LIMIT * page
-    )(filteredAbsences);
+    return page
+      ? slice(
+          this.PAGE_LIMIT * (page - 1),
+          this.PAGE_LIMIT * page
+        )(filteredAbsences)
+      : filteredAbsences;
   }
 }
