@@ -1,12 +1,13 @@
 import path from 'path';
 
 import { compose } from 'ramda';
-import { IAbsence } from 'entities/IAbsences';
 import { areIntervalsOverlapping, format } from 'date-fns';
-import { IMember } from 'entities/IMembers';
-import { filterBy, mapBy, readJsonFile, slice } from 'utils';
-import { IAbsencesDTO } from 'dtos';
-import { MembersService } from 'services/Members';
+
+import { IMember } from '../../entities/IMembers';
+import { IAbsence } from '../../entities/IAbsences';
+import { filterBy, mapBy, readJsonFile, slice } from '../../utils';
+import { IAbsencesDTO } from '../../dtos';
+import { MembersService } from '../../services/Members';
 
 const ABSENCES_PATH = path.join(__dirname, 'absences.json');
 

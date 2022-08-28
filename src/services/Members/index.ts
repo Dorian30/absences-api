@@ -1,7 +1,7 @@
 import path from 'path';
 
-import { IMember } from 'entities';
-import { readJsonFile } from 'utils';
+import { IMember } from '../../entities';
+import { readJsonFile } from '../../utils';
 
 const MEMBERS_PATH = path.join(__dirname, 'members.json');
 

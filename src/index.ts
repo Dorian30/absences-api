@@ -1,6 +1,6 @@
-import { GetAbsencesController } from 'controllers';
 import express, { Request } from 'express';
 
+import { GetAbsencesController } from './controllers';
 import container from './container';
 
 const app = express();
