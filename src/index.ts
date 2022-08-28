@@ -7,7 +7,7 @@ import container from './container';
 const app = express();
 const port = process.env.PORT || 3000;
 
-app.use(cors());
+app.use(cors({ exposedHeaders: ['X-Total-Count'] }));
 
 app.get('/absences', (req: Request<any>, res) =>
   container
