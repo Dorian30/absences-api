@@ -39,7 +39,9 @@ export class CalendarService {
   }
 
   async createCalendar(req: Request) {
-    const absences = await this.absencesService.findAbsences(req.query as any);
+    const { absences } = await this.absencesService.findAbsences(
+      req.query as any
+    );
 
     const iCal = compose(this.createICal, this.createICalEvents())(absences);
     return iCal;
