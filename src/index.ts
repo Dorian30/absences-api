@@ -1,10 +1,13 @@
 import express, { Request } from 'express';
+import cors from 'cors';
 
 import { GetAbsencesController, GetCalendarController } from './controllers';
 import container from './container';
 
 const app = express();
 const port = process.env.PORT || 3000;
+
+app.use(cors());
 
 app.get('/absences', (req: Request<any>, res) =>
   container

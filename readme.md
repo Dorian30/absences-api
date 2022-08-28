@@ -59,8 +59,9 @@ We decided to implement this feature for our clients and we are calling it the A
 
 A list of nice to haves or technical and functional improvements to enhance the product or module on next iterations.
 
-- **Testing:** Add testing to the project, due to lack of time they weren't included yet.
+- **Paths:** Implement aliases for paths.
 - **Types:** Improve some typescript interface.
+- **Testing:** Add testing to the project, due to lack of time they weren't included yet.
 - **Framework:** Implement a more robust framework like Nestjs for DDD.
 
 ## 💬 Convention
