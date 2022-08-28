@@ -1,5 +1,6 @@
 import { Response, Request } from 'express';
-import { AbsencesService } from 'services/Absences';
+
+import { AbsencesService } from '../../services/Absences';
 
 export class GetAbsencesController {
   private absencesService: AbsencesService;
