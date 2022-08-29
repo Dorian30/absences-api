@@ -21,7 +21,7 @@ export class AbsencesService {
   }
 
   private filterByDateInterval = (
-    period: { from?: string; to?: string } | null
+    period: { from: string | null; to: string | null } | null
   ) =>
     filterBy((absence: IAbsence) => {
       try {
@@ -76,18 +76,20 @@ export class AbsencesService {
   async findAbsences({
     page,
     type,
-    period
+    from,
+    to
   }: {
     page?: number;
     type: 'sickness' | 'vacation';
-    period: { from?: string; to?: string } | null;
+    from: string | null;
+    to: string | null;
   }) {
     const absences = (await readJsonFile(ABSENCES_PATH)) as Array<IAbsence>;
     const members = await MembersService.findAll();
 
     const filteredAbsences = compose(
       this.mapMembersToAbsences(members),
-      this.filterByDateInterval(period),
+      this.filterByDateInterval({ from, to }),
       this.filterByType(type)
     )(absences);
 
