@@ -16,6 +16,6 @@ export class GetCalendarController {
   async executeImpl(req: Request, res: Response) {
     const calendar = await this.calendarService.createCalendar(req);
 
-    return res.send(calendar);
+    return res.json(calendar);
   }
 }

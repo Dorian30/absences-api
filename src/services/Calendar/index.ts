@@ -43,7 +43,7 @@ export class CalendarService {
       req.query as any
     );
 
-    const iCal = compose(this.createICal, this.createICalEvents())(absences);
-    return iCal;
+    const text = compose(this.createICal, this.createICalEvents())(absences);
+    return { text };
   }
 }
